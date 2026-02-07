@@ -10,6 +10,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+import { dark } from '@clerk/themes';
 
 import "./globals.css";
 
@@ -36,7 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        theme: dark,
+      }}
+    >
     <html lang="en" suppressHydrationWarning >
       <body
         className={`${inter.variable} ${plexMono.variable} antialiased`}
