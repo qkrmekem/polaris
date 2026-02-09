@@ -12,6 +12,8 @@ import {
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
 
+import { ConvexClientProvider } from "@/components/convex-client-provider";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -52,21 +54,23 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header>
-            <SignedOut>
-            <SignInButton/>
-            <SignUpButton>
-              <button className="bg-rose-500 text-white p-2 rounded">
-                Sign Up
-              </button>
-            </SignUpButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton/>
-          </SignedIn>
-          </header>
+          <ConvexClientProvider>
+            <header>
+              <SignedOut>
+              <SignInButton/>
+              <SignUpButton>
+                <button className="bg-rose-500 text-white p-2 rounded">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton/>
+            </SignedIn>
+            </header>
           
           {children}
+          </ConvexClientProvider>
         </ThemeProvider>
         
       </body>
