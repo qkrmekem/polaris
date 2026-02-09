@@ -4,17 +4,11 @@ import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/them-provider";
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
 
-import { ConvexClientProvider } from "@/components/convex-client-provider";
-
 import "./globals.css";
+import { Providers } from "@/components/providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,31 +42,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plexMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ConvexClientProvider>
-            <header>
-              <SignedOut>
-              <SignInButton/>
-              <SignUpButton>
-                <button className="bg-rose-500 text-white p-2 rounded">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton/>
-            </SignedIn>
-            </header>
-          
+        <Providers>
           {children}
-          </ConvexClientProvider>
-        </ThemeProvider>
-        
+        </Providers> 
       </body>
     </html>
     </ClerkProvider>

@@ -1,0 +1,23 @@
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
+import { ShieldAlertIcon } from "lucide-react"
+
+export const UnauthenticatedView = () => {
+    return (
+        <div className=" flex items-center justify-center h-screen
+        bg-background">
+            <div className="w-full max-w-lg bg-muted">
+                <Item variant="outline">
+                    <ItemMedia variant="icon">
+                        <ShieldAlertIcon/>
+                    </ItemMedia>
+                    <ItemContent>
+                        <ItemTitle>Unauthorized Access</ItemTitle>
+                        <ItemDescription>
+                            You are not authorized user. Please sign in to access this content.
+                        </ItemDescription>
+                    </ItemContent>
+                </Item>
+            </div>
+        </div>
+    )
+}
