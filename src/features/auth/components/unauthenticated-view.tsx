@@ -1,4 +1,6 @@
-import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
+import { Button } from "@/components/ui/button"
+import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
+import { SignInButton } from "@clerk/nextjs"
 import { ShieldAlertIcon } from "lucide-react"
 
 export const UnauthenticatedView = () => {
@@ -16,6 +18,13 @@ export const UnauthenticatedView = () => {
                             You are not authorized user. Please sign in to access this content.
                         </ItemDescription>
                     </ItemContent>
+                    <ItemActions>
+                        <SignInButton>
+                            <Button variant="outline" size="sm">
+                                Sign In
+                            </Button>
+                        </SignInButton>
+                    </ItemActions>
                 </Item>
             </div>
         </div>
